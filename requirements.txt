@@ -1,0 +1,7 @@
+streamlit>=1.36
+pandas>=2.1
+numpy>=1.26
+requests>=2.31
+python-dotenv>=1.0
+plotly>=5.22
+tzdata>=2024.1

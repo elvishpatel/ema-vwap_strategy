@@ -1,0 +1,11 @@
+market,filter,period,trades,win_rate_pct,net_pnl,profit_factor,avg_trade,max_drawdown,max_consecutive_losses,signals,skipped_no_contract
+SENSEX,baseline,train,187,35.83,-47670.12,0.698,-254.92,-69736.05,18,353,92
+SENSEX,baseline,test,104,47.12,13200.09,1.158,126.92,-19236.12,7,138,14
+SENSEX,vwap,train,85,49.41,23327.68,1.466,274.44,-14956.07,6,178,62
+SENSEX,vwap,test,95,49.47,24897.01,1.344,262.07,-13726.76,7,125,13
+SENSEX,vwap_slope,train,85,49.41,23327.68,1.466,274.44,-14956.07,6,178,62
+SENSEX,vwap_slope,test,95,49.47,24897.01,1.344,262.07,-13726.76,7,125,13
+SENSEX,vwap_volume,train,28,57.14,17799.33,2.513,635.69,-2587.59,4,66,24
+SENSEX,vwap_volume,test,30,50.0,8792.01,1.355,293.07,-10455.62,4,38,3
+SENSEX,vwap_adx,train,66,42.42,1705.93,1.038,25.85,-23135.56,6,136,47
+SENSEX,vwap_adx,test,68,44.12,8044.15,1.149,118.3,-14378.57,7,86,9

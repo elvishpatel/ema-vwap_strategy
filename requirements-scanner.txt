@@ -1,0 +1,8 @@
+# Minimal dependencies for the live scanner (GitHub Actions).
+# The dashboard-only packages (streamlit, plotly) are intentionally excluded
+# so each scheduled run installs quickly and uses fewer free CI minutes.
+pandas>=2.1
+numpy>=1.26
+requests>=2.31
+python-dotenv>=1.0
+tzdata>=2024.1

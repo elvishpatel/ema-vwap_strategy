@@ -1,0 +1,39 @@
+{
+  "symbols": {
+    "SENSEX": "BSE:SENSEX-INDEX",
+    "NIFTY": "NSE:NIFTY50-INDEX",
+    "BANKNIFTY": "NSE:NIFTYBANK-INDEX"
+  },
+  "resolution": "15",
+  "initial_capital": 15000,
+  "lot_sizes": {
+    "SENSEX": 20,
+    "NIFTY": 65,
+    "BANKNIFTY": 30
+  },
+  "slippage_pct_per_side": 0.001,
+  "brokerage_per_order": 20.0,
+  "other_cost_pct_per_side": 0.0005,
+  "max_dte": 10,
+  "min_dte": 0,
+  "max_holding_bars": 12,
+  "stop_atr": 1.5,
+  "target_atr": 2.0,
+  "train_fraction": 0.7,
+  "min_train_trades": 40,
+  "volume_ratio_threshold": 1.2,
+  "adx_threshold": 18,
+  "max_trades_per_day": 2,
+  "last_entry_time": "14:30",
+  "force_exit_time": "15:15",
+  "no_entry_windows": ["10:00-11:00"],
+  "max_bar_age_min": 16,
+  "htf_bias": "h1",
+  "or_end_time": "09:45",
+  "sizing_mode": "risk",
+  "risk_pct": 0.01,
+  "max_capital_pct": 0.6,
+  "exit_on_opposite": true,
+  "stop_mode": "atr",
+  "struct_lookback": 5
+}
