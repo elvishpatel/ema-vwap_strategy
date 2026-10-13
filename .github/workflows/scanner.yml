@@ -1,0 +1,54 @@
+name: Market scanner
+
+on:
+  schedule:
+    - cron: "*/15 3-10 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: market-scanner
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements-scanner.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-scanner.txt
+
+      - name: Restore alert-state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: state
+          key: alert-state-${{ github.run_id }}
+          restore-keys: |
+            alert-state-
+
+      - name: Scan once
+        env:
+          FYERS_CLIENT_ID: ${{ secrets.FYERS_CLIENT_ID }}
+          FYERS_ACCESS_TOKEN: ${{ secrets.FYERS_ACCESS_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python live_scanner.py --market SENSEX --filter trend --once --state-file state/seen.txt
+
+      - name: Save alert-state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: state
+          key: alert-state-${{ github.run_id }}
